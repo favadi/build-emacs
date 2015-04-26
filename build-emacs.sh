@@ -22,9 +22,11 @@ if [[ ! -d emacs-"$version" ]]; then
 fi
 
 # buil and install
+sudo mkdir /usr/local/stow
 cd emacs-"$version"
 ./configure \
-    --with-xft --with-x-toolkit=lucid
+    --with-xft \
+    --with-x-toolkit=lucid
 make
 sudo make install prefix=/usr/local/stow/emacs-"$version"
 cd /usr/local/stow
