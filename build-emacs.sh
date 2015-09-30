@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build latest version of Emacs, version management with stow
-# OS: Ubuntu 14.04 LTS
+# OS: Ubuntu 14.04 LTS and 15.04
 # version: 24.5
 # Toolkit: lucid
 
@@ -9,9 +9,13 @@ set -e
 
 readonly version="24.5"
 
-# install dependencies (you may need libtiff4-dev instead of libtiff5-dev)
+# edit this to your situation: libtiff4-dev for Ubuntu 14.04, or
+# libtiff5-dev for Ubuntu 15.04+
+libtiff_dev_version='libtiff5-dev'
+
+# install dependencies
 sudo apt-get install -y stow build-essential libx11-dev xaw3dg-dev \
-     libjpeg-dev libpng12-dev libgif-dev libtiff5-dev libncurses5-dev \
+     libjpeg-dev libpng12-dev libgif-dev ${libtiff_dev_version} libncurses5-dev \
      libxft-dev librsvg2-dev libmagickcore-dev libmagick++-dev \
      libxml2-dev libgpm-dev libghc-gconf-dev libotf-dev libm17n-dev \
      libgnutls-dev
