@@ -39,15 +39,14 @@ cd /usr/local/stow
 # or a device) and not a symlink, then move it
 dirfile='/usr/local/share/info/dir'
 if [ -e "$dirfile" -a -f "$dirfile" -a ! -L "$dirfile" ]; then
-  echo "Note: There is already a pre-existing dir file at"
-  echo "$dirfile and I am about to run stow. But"
-  echo "stow will need to symlink from that location to"
-  echo "/usr/local/stow/emacs-${version}/share/info/dir and not"
-  echo "be able to."
-  echo "So for now, to resolve that potential conflict, I am renaming"
-  echo "${dirfile} to ${dirfile}-orig."
-  echo "You may want to resolve or merge the two dir files manually later."
-  echo "Renaming:"
+  cat <<EOF
+Renaming an already-existing
+   ${dirfile}
+so that stow will be able to make a symlink from
+   ${dirfile}
+to
+   /usr/local/stow/emacs-${version}/share/info/dir
+EOF
   sudo mv -v ${dirfile} ${dirfile}-orig
 fi
 
