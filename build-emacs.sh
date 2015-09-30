@@ -42,7 +42,7 @@ if [ -e "$dirfile" -a -f "$dirfile" -a ! -L "$dirfile" ]; then
   echo "Note: There is already a pre-existing dir file at"
   echo "$dirfile and I am about to run stow. But"
   echo "stow will need to symlink to that location from"
-  echo "/usr/local/stow/emacs-${version}/share/info/dir and not"
+  echo "/usr/local/stow/emacs-${version}/share/info/dir
   echo "be able to if there is a file already existing there."
   echo "So for now, to resolve that potential conflict, I am renaming"
   echo "${dirfile} to ${dirfile}-orig."
