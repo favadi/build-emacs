@@ -8,6 +8,11 @@ before_install:
   - docker version
 
   - docker build -f test/Dockerfile-trusty -t emacs_trusty .
+  - docker build -f test/Dockerfile-vivid -t emacs_vivid .
+  - docker build -f test/Dockerfile-wily -t emacs_wily .
+
 
 script:
   - docker run emacs_trusty /usr/local/bin/emacs --version
+  - docker run emacs_vivid /usr/local/bin/emacs --version
+  - docker run emacs_wily /usr/local/bin/emacs --version
