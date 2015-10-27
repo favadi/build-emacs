@@ -1,5 +1,7 @@
 FROM ubuntu:14.04
 
+MAINTAINER Diep Pham
+
 ADD build-emacs.sh /root/build-emacs.sh
 
 RUN /bin/bash -x /root/build-emacs.sh
