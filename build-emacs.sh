@@ -15,7 +15,7 @@ sudo apt-get -qq install -y stow build-essential libx11-dev xaw3dg-dev \
      libjpeg-dev libpng12-dev libgif-dev libtiff5-dev libncurses5-dev \
      libxft-dev librsvg2-dev libmagickcore-dev libmagick++-dev \
      libxml2-dev libgpm-dev libghc-gconf-dev libotf-dev libm17n-dev \
-     libgnutls-dev wget
+     libgnutls-dev wget sudo
 
 # download source package
 if [[ ! -d emacs-"$version" ]]; then
