@@ -31,7 +31,7 @@ cd emacs-"$version"
     --with-x-toolkit=lucid
 
 make
-sudo make install \
+sudo make \
     install-arch-dep \
     install-arch-indep \
     prefix=/usr/local/stow/emacs-"$version"
