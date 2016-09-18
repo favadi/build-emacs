@@ -7,7 +7,7 @@
 
 set -eu
 
-readonly version="24.5"
+readonly version="25.1"
 
 # install dependencies
 sudo apt-get -qq update
