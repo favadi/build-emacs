@@ -1,8 +1,6 @@
-FROM ubuntu:wily
+FROM ubuntu:xenial
 
 MAINTAINER Diep Pham
-
-RUN apt-get update && apt-get install -y sudo
 
 ADD build-emacs.sh /root/build-emacs.sh
 
