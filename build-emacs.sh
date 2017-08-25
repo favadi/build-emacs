@@ -2,20 +2,20 @@
 
 # Build latest version of Emacs, version management with stow
 # OS: Ubuntu 14.04 LTS and newer
-# version: 24.5
+# version: 25.2
 # Toolkit: lucid
 
 set -eu
 
-readonly version="25.1"
+readonly version="25.2"
 
 # install dependencies
 sudo apt-get -qq update
-sudo apt-get -qq install -y stow build-essential libx11-dev xaw3dg-dev \
+sudo apt-get -qq install -y stow build-essential libx11-dev \
      libjpeg-dev libpng12-dev libgif-dev libtiff5-dev libncurses5-dev \
      libxft-dev librsvg2-dev libmagickcore-dev libmagick++-dev \
      libxml2-dev libgpm-dev libotf-dev libm17n-dev \
-     libgnutls-dev wget
+     libgnutls-dev libgtk-3-dev libwebkitgtk-3.0-dev libxpm-dev wget
 
 # download source package
 if [[ ! -d emacs-"$version" ]]; then
@@ -28,7 +28,7 @@ sudo mkdir -p /usr/local/stow
 cd emacs-"$version"
 ./configure \
     --with-xft \
-    --with-x-toolkit=lucid
+    --with-x-toolkit=gtk3
 
 make
 sudo make \
