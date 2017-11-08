@@ -26,6 +26,9 @@ if [[ ! -d emacs-"$version" ]]; then
    tar xvf emacs-"$version".tar.xz
 fi
 
+# create /usr/local subdirectories
+sudo mkdir -p /usr/local/{bin,etc,games,include,lib,libexec,sbin,share,src}
+
 # build and install
 sudo mkdir -p /usr/local/stow
 cd emacs-"$version"
