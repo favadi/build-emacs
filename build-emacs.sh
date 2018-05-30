@@ -6,7 +6,7 @@
 
 set -eu
 
-readonly version="25.3"
+readonly version="26.1"
 
 # install dependencies
 sudo apt-get -qq update
