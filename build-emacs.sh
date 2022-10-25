@@ -50,7 +50,8 @@ cd emacs-"$version"
 	--with-modules \
 	--with-x-toolkit=gtk3 \
 	--with-native-compilation
-make
+
+make NATIVE_FULL_AOT=1 -j"$(nproc)"
 
 sudo make \
 	install-arch-dep \
