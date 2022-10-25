@@ -10,7 +10,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          file: test/Dockerfile-xenial
-          tags: emacs_xenial
+          file: test/debian_11.dockerfile
+          tags: emacs_debian_11
       - run: |
-          docker run emacs_xenial /usr/local/bin/emacs --version
+          docker run emacs_debian_11 /usr/local/bin/emacs --version

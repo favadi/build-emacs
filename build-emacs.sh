@@ -13,14 +13,25 @@ export DEBIAN_FRONTEND="noninteractive"
 # install dependencies
 sudo apt-get update
 sudo apt-get install -y \
-	stow \
+	stow wget \
 	build-essential \
+	libgccjit-10-dev \
+	libgif-dev \
+	libgnutls28-dev \
+	libgpm-dev \
+	libgtk-3-dev \
+	libjansson-dev \
+	libjpeg-dev \
+	liblcms2-dev \
+	libm17n-dev \
+	libncurses5-dev \
+	libotf-dev \
+	librsvg2-dev \
+	libtiff5-dev \
 	libx11-dev \
-	libjpeg-dev libgif-dev libtiff5-dev libncurses5-dev \
-	libxft-dev librsvg2-dev libmagickcore-dev libmagick++-dev \
-	libxml2-dev libgpm-dev libotf-dev libm17n-dev \
-	libgtk-3-dev libwebkitgtk-3.0-dev libxpm-dev wget \
-	libgnutls28-dev libpng-dev
+	libxml2-dev \
+	libxpm-dev \
+	pkg-config
 
 # download source package
 if [[ ! -d emacs-"$version" ]]; then
@@ -29,16 +40,18 @@ if [[ ! -d emacs-"$version" ]]; then
 fi
 
 # create /usr/local subdirectories
-sudo mkdir -p /usr/local/{bin,etc,games,include,lib,libexec,man,sbin,share,src}
+sudo mkdir -p /usr/local/{bin,etc,games,include,lib,libexec,man,sbin,share,src,stow}
 
 # build and install
-sudo mkdir -p /usr/local/stow
 cd emacs-"$version"
 ./configure \
-	--with-xft \
-	--with-x-toolkit=gtk3
-
+	--with-cairo \
+	--with-harfbuzz \
+	--with-modules \
+	--with-x-toolkit=gtk3 \
+	--with-native-compilation
 make
+
 sudo make \
 	install-arch-dep \
 	install-arch-indep \
