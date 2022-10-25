@@ -1,0 +1,16 @@
+name: Build Emacs
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          file: test/debian_11.dockerfile
+          tags: emacs_debian_11
+      - run: |
+          docker run emacs_debian_11 /usr/local/bin/emacs --version
